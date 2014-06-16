@@ -1,0 +1,12 @@
+mrt create krend
+cd krend
+mrt add bootstrap
+rm krend.html krend.js krend.css
+mkdir client server public lib collections
+cp -pqr ../microscope/client/stylesheets client
+meteor remove autopublish
+mrt add iron-router
+mrt add spin
+mrt add accounts-ui-bootstrap-dropdown
+mrt add accounts-password
+meteor remove insecure
