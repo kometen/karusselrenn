@@ -6,7 +6,9 @@
       "spin": {},
       "accounts-ui-bootstrap-dropdown": {},
       "typeahead": {},
-      "autoform-extension": {}
+      "autoform-extension": {},
+      "jquery-ui": {},
+      "bootstrap-timepicker": {}
     },
     "packages": {
       "iron-router": {
@@ -33,6 +35,16 @@
         "git": "https://github.com/miguelalarcos/autoform-extension.git",
         "tag": "v0.1.5",
         "commit": "58f95ec4cb2bf47930d4b298d3c8cb992f4bffd6"
+      },
+      "jquery-ui": {
+        "git": "https://github.com/TimHeckel/meteor-jquery-ui.git",
+        "tag": "v1.9.2",
+        "commit": "c437d45edcf1367df8d5ffa8bad2867758030bd2"
+      },
+      "bootstrap-timepicker": {
+        "git": "https://github.com/BenjaminRH/meteor-bootstrap-timepicker.git",
+        "tag": "v0.1.0",
+        "commit": "fa61edb82752e5c682dbaafd5412f4d29f8b72e0"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",

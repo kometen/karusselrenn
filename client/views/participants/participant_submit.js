@@ -16,3 +16,14 @@ Template.participantSubmit.events({
 		});
 	}
 });
+
+// http://atmospherejs.com/package/typeahead
+// ac = autocomplete
+
+Template.participantSubmit.rendered = function () {
+	Meteor.typeahead(this.find('.typeahead'));
+};
+
+Template.participantSubmit.acclubs = function () {
+	return Clubs.find().fetch().map(function (post) { return post.name;	});
+};

@@ -32,3 +32,9 @@ Template.raceEdit.events({
 		}
 	}
 });
+
+Template.raceEdit.rendered = function () {
+	$('.datepicker').datepicker();
+
+	$('.timepicker').timepicker();
+}

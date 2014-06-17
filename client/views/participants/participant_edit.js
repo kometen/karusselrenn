@@ -40,4 +40,3 @@ Template.participantEdit.rendered = function () {
 Template.participantEdit.acclubs = function () {
 	return Clubs.find().fetch().map(function (post) { return post.name;	});
 };
-
