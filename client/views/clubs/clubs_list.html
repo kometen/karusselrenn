@@ -1,0 +1,12 @@
+<template name="clubsList">
+	<div class="nav-collapse collapse">
+		<ul class="nav">
+			<li><a href="{{pathFor 'clubSubmit'}}">New Club</a></li>
+		</ul>
+	</div>
+	<div class="clubs">
+		{{#each clubs}}
+			{{> clubItem}}
+		{{/each}}
+	</div>
+</template>

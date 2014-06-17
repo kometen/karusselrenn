@@ -1,4 +1,9 @@
 <template name="participantsList">
+	<div class="nav-collapse collapse">
+		<ul class="nav">
+			<li><a href="{{pathFor 'participantSubmit'}}">New Participant</a></li>
+		</ul>
+	</div>
 	<div class="participants">
 		{{#each participants}}
 			{{> participantItem}}

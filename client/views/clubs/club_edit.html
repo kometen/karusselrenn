@@ -1,23 +1,23 @@
-<template name="participantEdit">
+<template name="clubEdit">
 	<form class="main">
 		<div class="control-group">
 			<label class="control-label" for="name">Name</label>
 			<div class="controls">
-				<input name="name" type="text" value="{{name}}" placeholder="Your name" />
+				<input name="name" type="text" value="{{name}}" placeholder="Club name" />
 			</div>
 		</div>
 
 		<div class="control-group">
-			<label class="control-label" for="year">Year</label>
+			<label class="control-label" for="description">Description</label>
 			<div class="controls">
-				<input name="year" type="text" value="{{year}}" placeholder="Year born" />
+				<input name="description" type="text" value="{{description}}" placeholder="Description" />
 			</div>
 		</div>
 
 		<div class="control-group">
-			<label class="control-label" for="club">Club</label>
+			<label class="control-label" for="city">City</label>
 			<div class="controls">
-				<input class="form-control typeahead" autocomplete="off" spellcheck="off" data-source="acclubs" name="club" type="text" value="{{club}}" placeholder="Club" />
+				<input name="city" type="text" value="{{city}}" placeholder="City" />
 			</div>
 		</div>
 
@@ -29,7 +29,7 @@
 		<hr />
 		<div class="control-group">
 			<div class="controls">
-				<a class="btn btn-danger delete" href="#">Delete participant</a>
+				<a class="btn btn-danger delete" href="#">Delete club</a>
 			</div>
 		</div>
 

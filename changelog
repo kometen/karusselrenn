@@ -10,3 +10,7 @@ mrt add spin
 mrt add accounts-ui-bootstrap-dropdown
 mrt add accounts-password
 meteor remove insecure
+
+mrt add autoform-extension
+mrt add typeahead
+https://raw.githubusercontent.com/sergeyt/meteor-typeahead/master/demo/style.css

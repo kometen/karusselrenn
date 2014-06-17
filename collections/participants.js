@@ -8,12 +8,12 @@ Participants.allow({
 Participants.deny({
 	update: function (userId, doc, fields) {
 		// Only edit specified fields
-		return (_.without(fields, 'name', 'year', 'born').length > 0);
+		return (_.without(fields, 'name', 'year', 'club').length > 0);
 	}
 });
 
 Meteor.methods({
-	post: function (postAttributes) {
+	postParticipant: function (postAttributes) {
 		var user = Meteor.user();
 
 		// ensure user is logged in

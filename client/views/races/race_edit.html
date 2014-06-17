@@ -1,0 +1,51 @@
+<template name="raceEdit">
+	<form class="main">
+		<div class="control-group">
+			<label class="control-label" for="name">Name</label>
+			<div class="controls">
+				<input name="name" type="text" value="{{name}}" placeholder="Your name" />
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="location">Location</label>
+			<div class="controls">
+				<input name="location" type="text" value="{{location}}" placeholder="Location" />
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="date">Date</label>
+			<div class="controls">
+				<input name="date" type="text" value="{{date}}" placeholder="Date" />
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="time">Time</label>
+			<div class="controls">
+				<input name="time" type="text" value="{{time}}" placeholder="Time" />
+			</div>
+		</div>
+
+		<div class="control-group">
+			<label class="control-label" for="interval">Interval</label>
+			<div class="controls">
+				<input name="interval" type="text" value="{{interval}}" placeholder="Interval" />
+			</div>
+		</div>
+
+		<div class="control-group">
+			<div class="controls">
+				<input type="submit" value="Update" class="btn btn-primary submit" />
+			</div>
+		</div>
+		<hr />
+		<div class="control-group">
+			<div class="controls">
+				<a class="btn btn-danger delete" href="#">Delete race</a>
+			</div>
+		</div>
+
+	</form>
+</template>

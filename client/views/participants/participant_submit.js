@@ -8,7 +8,7 @@ Template.participantSubmit.events({
 			club: $(e.target).find('[name=club]').val()
 		}
 
-		Meteor.call('post', participant, function (error, id) {
+		Meteor.call('postParticipant', participant, function (error, id) {
 			if (error) {
 				return alert(error.reason);
 			}

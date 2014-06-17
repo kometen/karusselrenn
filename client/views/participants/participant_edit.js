@@ -10,7 +10,7 @@ Template.participantEdit.events({
 			club: $(e.target).find('[name=club]').val()
 		}
 
-		Participants.update(currentParticipantId, {set: participantProperties}, function (error) {
+		Participants.update(currentParticipantId, {$set: participantProperties}, function (error) {
 			if (error) {
 				return alert(error.reason);
 			} else {
@@ -29,3 +29,15 @@ Template.participantEdit.events({
 		}
 	}
 });
+
+// http://atmospherejs.com/package/typeahead
+// ac = autocomplete
+
+Template.participantEdit.rendered = function () {
+	Meteor.typeahead(this.find('.typeahead'));
+};
+
+Template.participantEdit.acclubs = function () {
+	return Clubs.find().fetch().map(function (post) { return post.name;	});
+};
+

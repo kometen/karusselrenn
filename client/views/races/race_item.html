@@ -1,0 +1,12 @@
+<template name="raceItem">
+	<div class="krend">
+		<div class="krend-content">
+			<h3><span>{{name}}, {{location}}, {{date}}, {{time}}, {{interval}}</span></h3>
+			<p>
+				Added by {{owner}}
+				{{#if ownRace}}<a href="{{pathFor 'raceEdit'}}">Edit</a>{{/if}}
+			</p>
+		</div>
+		<a href="{{pathFor 'racePage'}}" class="discuss btn">Details</a>
+	</div>
+</template>
