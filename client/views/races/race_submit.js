@@ -21,10 +21,4 @@ Template.raceSubmit.events({
 
 Template.raceSubmit.rendered = function () {
 	$('.datepicker').datepicker();
-	$('.timepicker').datetimepicker({
-		showOn: 'button',
-		showSecond: true,
-		dateFormat: 'dd-mm-yyyy',
-		timeFormat: 'HH::mm:ss'
-	});
 }

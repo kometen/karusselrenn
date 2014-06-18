@@ -10,7 +10,6 @@ spin
 accounts-ui-bootstrap-dropdown
 accounts-password
 typeahead
-autoform-extension
 jquery-ui
 moment
 bootstrap-timepicker
