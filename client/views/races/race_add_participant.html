@@ -1,0 +1,19 @@
+<template name="raceAddParticipant">
+	<form>
+		<div class="control-group">
+			<div class="controls">
+				<input class="form-control typeahead" autocomplete="off" spellcheck="off" data-source="acparticipants" name="name" type="text" style="width:250px;" value="" placeholder="Participant" data-template="pTemplate" />
+			</div>
+		</div>
+		<div class="control-group">
+			<div class="controls">
+				<input type="submit" value="Add to Race" class="btn btn-primary submit" />
+			</div>
+		</div>
+	</form>
+</template>
+
+<template name="pTemplate">
+	<p class="participant-name">{{name}}</p>
+	<p class="participant-id">{{location}}</p>
+</template>

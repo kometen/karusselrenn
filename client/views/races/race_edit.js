@@ -32,16 +32,3 @@ Template.raceEdit.events({
 		}
 	}
 });
-
-Template.raceEdit.rendered = function () {
-	$('.datepicker').datepicker({
-		format: 'mm-dd-yyyy'
-	});
-
-	$('.timepicker').timepicker({
-		minuteStep: 5,
-		showInputs: false,
-		showMeridian: false,
-		disableFocus: true
-	});
-}

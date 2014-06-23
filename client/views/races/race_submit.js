@@ -18,7 +18,3 @@ Template.raceSubmit.events({
 		});
 	}
 });
-
-Template.raceSubmit.rendered = function () {
-	$('.datepicker').datepicker();
-}

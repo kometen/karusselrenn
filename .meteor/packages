@@ -9,7 +9,7 @@ iron-router
 spin
 accounts-ui-bootstrap-dropdown
 accounts-password
-typeahead
 jquery-ui
 moment
 bootstrap-timepicker
+typeahead

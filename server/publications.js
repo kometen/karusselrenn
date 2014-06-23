@@ -9,3 +9,7 @@ Meteor.publish('clubs', function () {
 Meteor.publish('races', function () {
 	return Races.find();
 });
+
+Meteor.publish('participantsInRace', function () {
+	return ParticipantsInRace.find();
+});
