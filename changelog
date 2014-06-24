@@ -11,9 +11,12 @@ mrt add accounts-ui-bootstrap-dropdown
 mrt add accounts-password
 meteor remove insecure
 
+// ??
 mrt add typeahead
 https://raw.githubusercontent.com/sergeyt/meteor-typeahead/master/demo/style.css
+// ??
 
 mrt add jquery-ui
 mrt add moment
 mrt add bootstrap-timepicker
+mrt add autocomplete

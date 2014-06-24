@@ -30,15 +30,3 @@ Template.raceAddParticipant.events({
 		}
 	}*/
 });
-
-// http://atmospherejs.com/package/typeahead
-// ac = autocomplete
-
-Template.raceAddParticipant.rendered = function () {
-	Meteor.typeahead(this.find('.typeahead'));
-};
-
-Template.raceAddParticipant.acparticipants = function () {
-//	return Participants.find().fetch().map(function (post) { return post.name; });
-	return Participants.find().fetch();
-};

@@ -5,9 +5,9 @@
       "iron-router": {},
       "spin": {},
       "accounts-ui-bootstrap-dropdown": {},
-      "typeahead": {},
       "jquery-ui": {},
-      "bootstrap-timepicker": {}
+      "bootstrap-timepicker": {},
+      "autocomplete": {}
     },
     "packages": {
       "iron-router": {
@@ -25,11 +25,6 @@
         "tag": "v0.8.3",
         "commit": "a7af8a52e4e74db020a69b158a8f992797b8b0b0"
       },
-      "typeahead": {
-        "git": "https://github.com/sergeyt/meteor-typeahead.git",
-        "tag": "v0.0.10",
-        "commit": "fe0bb03aea8493037de134d815f9663feb21a944"
-      },
       "jquery-ui": {
         "git": "https://github.com/TimHeckel/meteor-jquery-ui.git",
         "tag": "v1.9.2",
@@ -40,10 +35,20 @@
         "tag": "v0.1.0",
         "commit": "fa61edb82752e5c682dbaafd5412f4d29f8b72e0"
       },
+      "autocomplete": {
+        "git": "https://github.com/mizzao/meteor-autocomplete.git",
+        "tag": "v0.4.5",
+        "commit": "48a706f0055939ac9e05dd619ad6d4df3dcc237d"
+      },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
         "tag": "v0.2.4",
         "commit": "b40e9b0612329288d75cf52ad14a7da64bb8618f"
+      },
+      "caret-position": {
+        "git": "https://github.com/StockBase/meteor-caret-position.git",
+        "tag": "v2.1.0-3",
+        "commit": "6028cf980f62cbf72cb2ea527091a3a31f87b8a7"
       }
     }
   }
