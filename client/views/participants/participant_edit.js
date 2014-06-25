@@ -29,14 +29,3 @@ Template.participantEdit.events({
 		}
 	}
 });
-
-// http://atmospherejs.com/package/typeahead
-// ac = autocomplete
-
-Template.participantEdit.rendered = function () {
-	Meteor.typeahead(this.find('.typeahead'));
-};
-
-Template.participantEdit.acclubs = function () {
-	return Clubs.find().fetch().map(function (post) { return post.name;	});
-};

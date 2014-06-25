@@ -2,7 +2,7 @@
 	<form>
 		<div class="control-group">
 			<div class="controls">
-				<input class="form-control" autocomplete="off" spellcheck="off" data-source="acparticipants" name="name" type="text" style="width:250px;" value="" placeholder="Participant" />
+				{{> inputAutocomplete settings=settings id="name" name="name" placeholder="Participant" placeholder="Name" }}
 			</div>
 		</div>
 		<div class="control-group">
@@ -11,4 +11,8 @@
 			</div>
 		</div>
 	</form>
+</template>
+
+<template name="acParticipants">
+	{{name}}, {{year}}, {{club}}, {{_id}}
 </template>

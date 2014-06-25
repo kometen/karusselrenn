@@ -7,7 +7,8 @@ Template.raceAddParticipant.events({
 		var participant = {
 			name: $(e.target).find('[name=name]').val(),
 			year: $(e.target).find('[name=year]').val(),
-			club: $(e.target).find('[name=club]').val()
+			club: $(e.target).find('[name=club]').val(),
+			id: $(e.target).find('[name=_id]').val()
 		}
 
 /*		Meteor.call('postParticipantToRace', participant, function (error, id) {
@@ -17,7 +18,7 @@ Template.raceAddParticipant.events({
 			Router.go('participantPage', {_id: id});
 		});*/
 
-		console.log('raceId: ' + raceId + ', participant-name: ' + participant.name);
+		console.log('raceId: ' + raceId + ', name: ' + participant.name + ', club: ' + Session.get('currentUserClub') + ', id: ' + Session.get('currentUserId'));
 	}
 
 /*	'click .delete': function (e) {
@@ -30,3 +31,22 @@ Template.raceAddParticipant.events({
 		}
 	}*/
 });
+
+Template.raceAddParticipant.settings = function () {
+	return {
+		position: 'bottom',
+		limit: 10,
+		rules: [
+			{
+				collection: Participants,
+				field: 'name',
+				matchAll: true,
+				callback: function (doc) {
+					Session.set('currentUserClub', doc.club);
+					Session.set('currentUserId', doc._id);
+				},
+				template: Template.acParticipants
+			}
+		]
+	}
+};
