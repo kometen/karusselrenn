@@ -6,8 +6,7 @@
       "spin": {},
       "accounts-ui-bootstrap-dropdown": {},
       "jquery-ui": {},
-      "bootstrap-timepicker": {},
-      "autocomplete": {}
+      "bootstrap-timepicker": {}
     },
     "packages": {
       "iron-router": {
@@ -35,20 +34,10 @@
         "tag": "v0.1.0",
         "commit": "fa61edb82752e5c682dbaafd5412f4d29f8b72e0"
       },
-      "autocomplete": {
-        "git": "https://github.com/mizzao/meteor-autocomplete.git",
-        "tag": "v0.4.5",
-        "commit": "48a706f0055939ac9e05dd619ad6d4df3dcc237d"
-      },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
         "tag": "v0.2.4",
         "commit": "b40e9b0612329288d75cf52ad14a7da64bb8618f"
-      },
-      "caret-position": {
-        "git": "https://github.com/StockBase/meteor-caret-position.git",
-        "tag": "v2.1.0-3",
-        "commit": "6028cf980f62cbf72cb2ea527091a3a31f87b8a7"
       }
     }
   }

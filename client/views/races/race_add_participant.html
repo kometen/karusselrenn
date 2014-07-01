@@ -2,7 +2,9 @@
 	<form>
 		<div class="control-group">
 			<div class="controls">
-				{{> inputAutocomplete settings=settings id="name" name="name" placeholder="Participant" placeholder="Name" }}
+				<input id="name" name="name" type="text" style="width:250px;" value="" placeholder="Participant" />
+				<input type="hidden" name="club" id="club" />
+				<input type="hidden" name="id" id="id" />
 			</div>
 		</div>
 		<div class="control-group">
@@ -11,8 +13,4 @@
 			</div>
 		</div>
 	</form>
-</template>
-
-<template name="acParticipants">
-	{{name}}, {{year}}, {{club}}, {{_id}}
 </template>
