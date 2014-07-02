@@ -4,6 +4,7 @@
     "spin": {},
     "accounts-ui-bootstrap-dropdown": {},
     "jquery-ui": {},
-    "bootstrap-timepicker": {}
+    "bootstrap-timepicker": {},
+    "moment": {}
   }
 }
