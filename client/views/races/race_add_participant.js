@@ -48,11 +48,14 @@ Template.raceAddParticipant.rendered = function () {
 //			response(participantsData)
 			var pData = Participants.find({name: {$regex: new RegExp(request.term), $options: 'i'}}, {sort: {name: 1}});
 			var p = pData.fetch();
+			var suggestions = [];
 			console.log('request.term: ' + request.term + ', pData: ' + pData);
 			for (var i = 0; i < p.length; i++) {
-				console.log('p[].name: ' + p[i].name);
+				console.log('p[' + i + '].name: ' + p[i].name + ', club: ' + p[i].club + ', id: ' + p[i]._id);
+				suggestions.push({value: p[i].name, club: p[i].club, _id: p[i]._id});
 			}
-			response(participantsData)
+			response(suggestions)
+//			response(participantsData)
 		},
 		focus: function (event, ui) {
 			$("#name").val(ui.item.value)
