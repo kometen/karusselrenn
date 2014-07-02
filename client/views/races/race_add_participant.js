@@ -45,7 +45,6 @@ Template.raceAddParticipant.rendered = function () {
 	$("#name").autocomplete({
 		minLength: 0,
 		source: function (request, response) {
-//			response(participantsData)
 			var pData = Participants.find({name: {$regex: new RegExp(request.term), $options: 'i'}}, {sort: {name: 1}});
 			var p = pData.fetch();
 			var suggestions = [];
@@ -106,11 +105,3 @@ var participantsData = [
 Template.raceAddParticipant.helpers({
 	participants: participantsData
 });
-
-function extractLast( term ) {
-  return split( term ).pop();
-}
-
-function split( val ) {
-  return val.split( /,\s*/ );
-}
