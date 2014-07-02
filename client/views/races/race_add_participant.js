@@ -44,8 +44,14 @@ Template.raceAddParticipant.rendered = function () {
 
 	$("#name").autocomplete({
 		minLength: 0,
-//		source: participantsData,
 		source: function (request, response) {
+//			response(participantsData)
+			var pData = Participants.find({name: {$regex: new RegExp(request.term), $options: 'i'}}, {sort: {name: 1}});
+			var p = pData.fetch();
+			console.log('request.term: ' + request.term + ', pData: ' + pData);
+			for (var i = 0; i < p.length; i++) {
+				console.log('p[].name: ' + p[i].name);
+			}
 			response(participantsData)
 		},
 		focus: function (event, ui) {
