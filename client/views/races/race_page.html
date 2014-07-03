@@ -1,4 +1,10 @@
 <template name="racePage">
 	{{> raceItem}}
 	{{> raceAddParticipant}}
+
+	<ul class="krend">
+		{{#each participants}}
+			 Testing {{> participantItem}}
+		{{/each}}
+	</ul>
 </template>

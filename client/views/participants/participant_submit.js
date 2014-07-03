@@ -12,7 +12,7 @@ Template.participantSubmit.events({
 			if (error) {
 				return alert(error.reason);
 			}
-			Router.go('participantPage', {_id: id});
+			Router.go('participantsList');
 		});
 	}
 });

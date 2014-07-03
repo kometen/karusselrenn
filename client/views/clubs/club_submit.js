@@ -12,7 +12,11 @@ Template.clubSubmit.events({
 			if (error) {
 				return alert(error.reason);
 			}
-			Router.go('clubPage', {_id: id});
+			Router.go('clubsList');
 		});
 	}
 });
+
+Template.clubSubmit.rendered = function () {
+	document.getElementById('name').focus();
+}

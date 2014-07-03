@@ -6,7 +6,7 @@ Clubs.allow({
 });
 
 Clubs.deny({
-	update: function (userId, doc, fields) {
+	update: function (ownerId, doc, fields) {
 		// Only edit specified fields
 		return (_.without(fields, 'name', 'description', 'city').length > 0);
 	}

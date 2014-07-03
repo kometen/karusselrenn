@@ -29,3 +29,7 @@ Template.clubEdit.events({
 		}
 	}
 });
+
+Template.clubEdit.rendered = function () {
+	document.getElementById('name').focus();
+}
