@@ -15,7 +15,7 @@ ParticipantsInRace.deny({
 */
 
 Meteor.methods({
-	postParticipantsInRace: function (postAttributes) {
+	addParticipantToRace: function (postAttributes) {
 		var user = Meteor.user();
 
 		// ensure user is logged in

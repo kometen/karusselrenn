@@ -13,19 +13,18 @@ Template.raceAddParticipant.events({
 			name: $(e.target).find('[name=name]').val(),
 			year: $(e.target).find('[name=year]').val(),
 			club: $(e.target).find('[name=club]').val(),
-			id: $(e.target).find('[name=id]').val(),
-			submitted: new Date().getTime(),
+			participantId: $(e.target).find('[name=id]').val(),
 			raceId: raceId
 		}
 
-/*		Meteor.call('postParticipantToRace', participant, function (error, id) {
+		Meteor.call('addParticipantToRace', participant, function (error, id) {
 			if (error) {
 				return alert(error.reason);
 			}
-			Router.go('participantPage', {_id: id});
-		});*/
+			Router.go('racePage', {_id: id});
+		});
 
-		console.log('raceId: ' + raceId + ', name: ' + participant.name + ', club: ' + participant.club + ', id: ' + participant.id);
+		console.log('raceId: ' + raceId + ', name: ' + participant.name + ', year: ' + participant.year + ', club: ' + participant.club + ', id: ' + participant.participantId);
 	}
 
 /*	'click .delete': function (e) {
@@ -45,14 +44,13 @@ Template.raceAddParticipant.rendered = function () {
 	$("#name").autocomplete({
 		minLength: 0,
 		source: function (request, response) {
-//			response(participantsData)
 			var pData = Participants.find({name: {$regex: new RegExp(request.term), $options: 'i'}}, {sort: {name: 1}});
 			var p = pData.fetch();
 			var suggestions = [];
-			console.log('request.term: ' + request.term + ', pData: ' + pData);
+//			console.log('request.term: ' + request.term + ', pData: ' + pData);
 			for (var i = 0; i < p.length; i++) {
-				console.log('p[' + i + '].name: ' + p[i].name + ', club: ' + p[i].club + ', id: ' + p[i]._id);
-				suggestions.push({value: p[i].name, club: p[i].club, _id: p[i]._id});
+//				console.log('p[' + i + '].name: ' + p[i].name + ', club: ' + p[i].club + ', id: ' + p[i]._id);
+				suggestions.push({value: p[i].name, year: p[i].year, club: p[i].club, _id: p[i]._id});
 			}
 			response(suggestions)
 //			response(participantsData)
@@ -63,6 +61,7 @@ Template.raceAddParticipant.rendered = function () {
 		},
 		select: function (event, ui) {
 			$("#name").val(ui.item.value);
+			$("#year").val(ui.item.year);
 			$("#club").val(ui.item.club);
 			$("#id").val(ui.item._id);
 			return false;

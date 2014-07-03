@@ -5,9 +5,9 @@ acClub = function () {
 			var cData = Clubs.find({name: {$regex: new RegExp(request.term), $options: 'i'}}, {sort: {name: 1}});
 			var c = cData.fetch();
 			var suggestions = [];
-			console.log('request.term: ' + request.term + ', cData: ' + cData);
+//			console.log('request.term: ' + request.term + ', cData: ' + cData);
 			for (var i = 0; i < c.length; i++) {
-				console.log('c[' + i + '].name: ' + c[i].name + ', city: ' + c[i].city + ', id: ' + c[i]._id);
+//				console.log('c[' + i + '].name: ' + c[i].name + ', city: ' + c[i].city + ', id: ' + c[i]._id);
 				suggestions.push({value: c[i].name, club: c[i].city, _id: c[i]._id});
 			}
 			response(suggestions)
