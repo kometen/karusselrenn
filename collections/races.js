@@ -39,7 +39,7 @@ Meteor.methods({
 
 		// whitelisted keys
 		var race = _.extend(_.pick(postAttributes, 'name', 'location', 'date', 'time', 'interval'), {
-			userId: user._id,
+			ownerId: user._id,
 			owner: user.username,
 			submitted: new Date().getTime()
 		});

@@ -34,8 +34,8 @@ Meteor.methods({
 		}
 
 		// whitelisted keys
-		var participant = _.extend(_.pick(postAttributes, 'name', 'year', 'club'), {
-			userId: user._id,
+		var participant = _.extend(_.pick(postAttributes, 'name', 'year', 'club', 'participantId', 'raceId'), {
+			ownerId: user._id,
 			owner: user.username,
 			submitted: new Date().getTime()
 		});

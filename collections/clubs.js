@@ -33,7 +33,7 @@ Meteor.methods({
 
 		// whitelisted keys
 		var club = _.extend(_.pick(postAttributes, 'name', 'description', 'city'), {
-			userId: user._id,
+			ownerId: user._id,
 			owner: user.username,
 			submitted: new Date().getTime()
 		});

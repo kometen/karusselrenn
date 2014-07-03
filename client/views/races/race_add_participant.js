@@ -47,7 +47,7 @@ Template.raceAddParticipant.rendered = function () {
 			var pData = Participants.find({name: {$regex: new RegExp(request.term), $options: 'i'}}, {sort: {name: 1}});
 			var p = pData.fetch();
 			var suggestions = [];
-//			console.log('request.term: ' + request.term + ', pData: ' + pData);
+//			console.log('request.term: ' + request.term);
 			for (var i = 0; i < p.length; i++) {
 //				console.log('p[' + i + '].name: ' + p[i].name + ', club: ' + p[i].club + ', id: ' + p[i]._id);
 				suggestions.push({value: p[i].name, year: p[i].year, club: p[i].club, _id: p[i]._id});
