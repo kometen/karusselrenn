@@ -21,6 +21,7 @@ Template.raceAddParticipant.events({
 			if (error) {
 				return alert(error.reason);
 			}
+			$('#formRaceAddParticipant')[0].reset();
 			Router.go('racePage', {_id: raceId});
 		});
 
