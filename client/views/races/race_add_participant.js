@@ -21,7 +21,7 @@ Template.raceAddParticipant.events({
 			if (error) {
 				return alert(error.reason);
 			}
-			Router.go('racePage', {_id: id});
+			Router.go('racePage', {_id: raceId});
 		});
 
 		console.log('raceId: ' + raceId + ', name: ' + participant.name + ', year: ' + participant.year + ', club: ' + participant.club + ', id: ' + participant.participantId);
