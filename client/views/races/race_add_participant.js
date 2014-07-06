@@ -25,7 +25,7 @@ Template.raceAddParticipant.events({
 			Router.go('racePage', {_id: raceId});
 		});
 
-		console.log('raceId: ' + raceId + ', name: ' + participant.name + ', year: ' + participant.year + ', club: ' + participant.club + ', id: ' + participant.participantId);
+//		console.log('raceId: ' + raceId + ', name: ' + participant.name + ', year: ' + participant.year + ', club: ' + participant.club + ', id: ' + participant.participantId);
 	}
 
 /*	'click .delete': function (e) {
