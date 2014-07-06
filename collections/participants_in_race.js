@@ -34,12 +34,12 @@ Meteor.methods({
 		}
 
 		// whitelisted keys
-		var participant = _.extend(_.pick(postAttributes, 'name', 'year', 'club', 'participantId', 'raceId'), {
+		var participant = _.extend(_.pick(postAttributes, 'name', 'year', 'club', 'participantId', 'raceId', 'interval', 'startdate', 'starttime'), {
 			_id: postAttributes.participantId,
 			ownerId: user._id,
 			owner: user.username,
 			submitted: new Date().getTime(),
-			index: 0
+			startnumber: 0
 		});
 
 		var participantId = ParticipantsInRace.upsert(participant._id, participant);

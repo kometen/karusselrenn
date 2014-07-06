@@ -8,12 +8,18 @@ Template.raceAddParticipant.events({
 		e.preventDefault();
 
 		var raceId = this._id;
+		var interval = this.interval;
+		var startdate = this.date;
+		var starttime = this.time;
 
 		var participant = {
 			name: $(e.target).find('[name=name]').val(),
 			year: $(e.target).find('[name=year]').val(),
 			club: $(e.target).find('[name=club]').val(),
 			participantId: $(e.target).find('[name=id]').val(),
+			interval: interval,
+			startdate: startdate,
+			starttime: starttime,
 			raceId: raceId
 		}
 
@@ -25,7 +31,7 @@ Template.raceAddParticipant.events({
 			Router.go('racePage', {_id: raceId});
 		});
 
-//		console.log('raceId: ' + raceId + ', name: ' + participant.name + ', year: ' + participant.year + ', club: ' + participant.club + ', id: ' + participant.participantId);
+		console.log('raceId: ' + raceId + ', interval: ' + participant.interval + ', date: ' + participant.startdate + ', time: ' + participant.starttime + ', name: ' + participant.name + ', year: ' + participant.year + ', club: ' + participant.club + ', id: ' + participant.participantId);
 	}
 
 /*	'click .delete': function (e) {
