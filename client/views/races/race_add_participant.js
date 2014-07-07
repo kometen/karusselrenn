@@ -37,10 +37,13 @@ Template.raceAddParticipant.events({
 		var p = ParticipantsInRace.find({raceId: this._id}, {sort: {submitted: 1}});
 		var i = 0;
 		p.forEach(function (post) {
-			console.log('i: ' + i + ', time: ' + moment(post.starttime, "HH:mm").add('seconds', post.interval * i).format("HH:mm:ss"));
+//			console.log('i: ' + i + ', time: ' + moment(post.starttime, "HH:mm").add('seconds', post.interval * i).format("HH:mm:ss"));
+			ParticipantsInRace.update(post._id,{$set: { starttime: moment(post.starttime, "HH:mm").add('seconds', post.interval * i).format("HH:mm:ss") }} );
 			i++;
+			post.startnumber = i;
+			ParticipantsInRace.update(post._id,{$set: { startnumber: i }} );
 		});
-		console.log('lock race with raceId ' + this._id);
+//		console.log('lock race with raceId ' + this._id);
 	}
 });
 
