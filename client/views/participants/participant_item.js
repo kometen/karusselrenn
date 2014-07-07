@@ -13,7 +13,7 @@ Template.participantItemTiny.events({
 
 		if (confirm('Remove from race?')) {
 			var currentParticipantId = this.participantId;
-			console.log('currentParticipantId: ' + currentParticipantId + ', raceId' + this.raceId);
+//			console.log('currentParticipantId: ' + currentParticipantId + ', raceId' + this.raceId);
 			ParticipantsInRace.remove(currentParticipantId);
 		}
 	}

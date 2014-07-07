@@ -31,7 +31,16 @@ Template.raceAddParticipant.events({
 			Router.go('racePage', {_id: raceId});
 		});
 
-		console.log('raceId: ' + raceId + ', interval: ' + participant.interval + ', date: ' + participant.startdate + ', time: ' + participant.starttime + ', name: ' + participant.name + ', year: ' + participant.year + ', club: ' + participant.club + ', id: ' + participant.participantId);
+//		console.log('raceId: ' + raceId + ', interval: ' + participant.interval + ', date: ' + participant.startdate + ', time: ' + participant.starttime + ', name: ' + participant.name + ', year: ' + participant.year + ', club: ' + participant.club + ', id: ' + participant.participantId);
+	},
+	'click input.lock': function () {
+		var p = ParticipantsInRace.find({raceId: this._id}, {sort: {submitted: 1}});
+		var i = 0;
+		p.forEach(function (post) {
+			console.log('i: ' + i + ', time: ' + moment(post.starttime, "HH:mm").add('seconds', post.interval * i).format("HH:mm:ss"));
+			i++;
+		});
+		console.log('lock race with raceId ' + this._id);
 	}
 });
 
