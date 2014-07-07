@@ -33,16 +33,6 @@ Template.raceAddParticipant.events({
 
 		console.log('raceId: ' + raceId + ', interval: ' + participant.interval + ', date: ' + participant.startdate + ', time: ' + participant.starttime + ', name: ' + participant.name + ', year: ' + participant.year + ', club: ' + participant.club + ', id: ' + participant.participantId);
 	}
-
-/*	'click .delete': function (e) {
-		e.preventDefault();
-
-		if (confirm('Delete participant?')) {
-			var currentParticipantId = this._id;
-			Participants.remove(currentParticipantId);
-			Router.go('participantsList')
-		}
-	}*/
 });
 
 Template.raceAddParticipant.rendered = function () {
