@@ -38,8 +38,7 @@ Meteor.methods({
 			_id: postAttributes.participantId,
 			ownerId: user._id,
 			owner: user.username,
-			submitted: new Date().getTime(),
-			startnumber: 0
+			submitted: new Date().getTime()
 		});
 
 		var participantId = ParticipantsInRace.upsert(participant._id, participant);
