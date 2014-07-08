@@ -8,31 +8,41 @@ Template.raceAddParticipant.events({
 	'submit form': function (e) {
 		e.preventDefault();
 
-		var raceId = this._id;
-		var interval = this.interval;
-		var startdate = this.date;
-		var starttime = this.time;
+		if (Session.equals("raceLockedStatus", true)) {
+			console.log('Race locked in submit form');
+			var raceId = this._id;
 
-		var participant = {
-			name: $(e.target).find('[name=name]').val(),
-			year: $(e.target).find('[name=year]').val(),
-			club: $(e.target).find('[name=club]').val(),
-			participantId: $(e.target).find('[name=id]').val(),
-			interval: interval,
-			startdate: startdate,
-			starttime: starttime,	// starttime is used in race_page.js
-			raceId: raceId
-		}
-
-		Meteor.call('addParticipantToRace', participant, function (error, id) {
-			if (error) {
-				return alert(error.reason);
+			var participant = {
+				participantId: $(e.target).find('[name=id]').val()
 			}
-			$('#formRaceAddParticipant')[0].reset();
-			Router.go('racePage', {_id: raceId});
-		});
+		} else {
 
-		console.log('raceId: ' + raceId + ', interval: ' + participant.interval + ', date: ' + participant.startdate + ', time: ' + participant.starttime + ', name: ' + participant.name + ', id: ' + participant.participantId);
+			var raceId = this._id;
+			var interval = this.interval;
+			var startdate = this.date;
+			var starttime = this.time;
+
+			var participant = {
+				name: $(e.target).find('[name=name]').val(),
+				year: $(e.target).find('[name=year]').val(),
+				club: $(e.target).find('[name=club]').val(),
+				participantId: $(e.target).find('[name=id]').val(),
+				interval: interval,
+				startdate: startdate,
+				starttime: starttime,	// starttime is used in race_page.js
+				raceId: raceId
+			}
+
+			Meteor.call('addParticipantToRace', participant, function (error, id) {
+				if (error) {
+					return alert(error.reason);
+				}
+				$('#formRaceAddParticipant')[0].reset();
+				Router.go('racePage', {_id: raceId});
+			});
+
+			console.log('raceId: ' + raceId + ', interval: ' + participant.interval + ', date: ' + participant.startdate + ', time: ' + participant.starttime + ', name: ' + participant.name + ', id: ' + participant.participantId);
+		}
 	},
 	'click .lock': function () {
 		if (Session.equals("raceLockedStatus", true)) {
