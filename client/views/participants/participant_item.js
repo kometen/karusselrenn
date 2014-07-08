@@ -4,8 +4,7 @@ Template.participantItem.helpers({
 	},
 	domain: function () {
 		return 'Blåbærsyltetøj';
-	}
-});
+	}});
 
 Template.participantItemTiny.events({
 	'click .delete': function (e) {
@@ -16,5 +15,11 @@ Template.participantItemTiny.events({
 //			console.log('currentParticipantId: ' + currentParticipantId + ', raceId' + this.raceId);
 			ParticipantsInRace.remove(currentParticipantId);
 		}
+	}
+});
+
+Template.participantItemTiny.helpers({
+	raceLockedStatus: function () {
+		return Session.get("raceLockedStatus");
 	}
 });

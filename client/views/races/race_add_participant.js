@@ -1,3 +1,9 @@
+Template.raceAddParticipant.helpers({
+	raceLockedStatus: function () {
+		return Session.get("raceLockedStatus");
+	}
+});
+
 Template.raceAddParticipant.events({
 	'keypress raceAddParticipant#name': function (e) {
 		if (e.which == 13) {
@@ -19,7 +25,7 @@ Template.raceAddParticipant.events({
 			participantId: $(e.target).find('[name=id]').val(),
 			interval: interval,
 			startdate: startdate,
-			starttime: starttime,
+			starttime: starttime,	// starttime is used in race_page.js
 			raceId: raceId
 		}
 
@@ -33,7 +39,18 @@ Template.raceAddParticipant.events({
 
 		console.log('raceId: ' + raceId + ', interval: ' + participant.interval + ', date: ' + participant.startdate + ', time: ' + participant.starttime + ', name: ' + participant.name + ', id: ' + participant.participantId);
 	},
-	'click input.lock': function () {
+	'click .lock': function () {
+		if (Session.equals("raceLockedStatus", false)) {
+			console.log('setting raceLockedStatus to true');
+			Session.set("raceLockedStatus", true);
+//			$("#raceLockId").prop('value', 'Unlock Race');
+//			$("#addToRace").prop('value', 'Register time');
+		} else {
+			console.log('setting raceLockedStatus to false');
+			Session.set("raceLockedStatus", false);
+//			$("#raceLockId").prop('value', 'Lock Race');
+//			$("#addToRace").prop('value', 'Add to Race');
+		}
 		var p = ParticipantsInRace.find({raceId: this._id}, {sort: {submitted: 1}});
 		var i = 0;
 		p.forEach(function (post) {
