@@ -13,6 +13,8 @@ Template.raceAddParticipant.events({
 			var raceId = this._id;
 
 			var participant = {
+				startnumber: $(e.target).find('[name=startnumber]').val(),
+				endtime: $(e.target).find('[name=endtime]').val(),
 				participantId: $(e.target).find('[name=id]').val()
 			}
 		} else {
