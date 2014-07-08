@@ -5,11 +5,6 @@ Template.raceAddParticipant.helpers({
 });
 
 Template.raceAddParticipant.events({
-	'keypress raceAddParticipant#name': function (e) {
-		if (e.which == 13) {
-			console.log('enter key pressed');
-		}
-	},
 	'submit form': function (e) {
 		e.preventDefault();
 
@@ -40,16 +35,12 @@ Template.raceAddParticipant.events({
 		console.log('raceId: ' + raceId + ', interval: ' + participant.interval + ', date: ' + participant.startdate + ', time: ' + participant.starttime + ', name: ' + participant.name + ', id: ' + participant.participantId);
 	},
 	'click .lock': function () {
-		if (Session.equals("raceLockedStatus", false)) {
-			console.log('setting raceLockedStatus to true');
-			Session.set("raceLockedStatus", true);
-//			$("#raceLockId").prop('value', 'Unlock Race');
-//			$("#addToRace").prop('value', 'Register time');
-		} else {
+		if (Session.equals("raceLockedStatus", true)) {
 			console.log('setting raceLockedStatus to false');
 			Session.set("raceLockedStatus", false);
-//			$("#raceLockId").prop('value', 'Lock Race');
-//			$("#addToRace").prop('value', 'Add to Race');
+		} else {
+			console.log('setting raceLockedStatus to true');
+			Session.set("raceLockedStatus", true);
 		}
 		var p = ParticipantsInRace.find({raceId: this._id}, {sort: {submitted: 1}});
 		var i = 0;
@@ -65,7 +56,11 @@ Template.raceAddParticipant.events({
 });
 
 Template.raceAddParticipant.rendered = function () {
-	document.getElementById('name').focus();
+	if (Session.equals("raceLockedStatus", true)) {
+		document.getElementById('startnumber').focus();
+	} else {
+		document.getElementById('name').focus();
+	}
 
 	$("#name").autocomplete({
 		minLength: 0,
