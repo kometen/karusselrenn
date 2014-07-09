@@ -74,7 +74,7 @@ Template.raceAddParticipant.events({
 });
 
 Template.raceAddParticipant.rendered = function () {
-	if (Session.equals("raceLockedStatus", true)) {
+	if (Session.equals(("raceLockedStatus" + this._id), true)) {
 		document.getElementById('startnumber').focus();
 	} else {
 		document.getElementById('name').focus();
