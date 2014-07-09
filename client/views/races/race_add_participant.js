@@ -17,6 +17,8 @@ Template.raceAddParticipant.events({
 				endtime: $(e.target).find('[name=endtime]').val(),
 				participantId: $(e.target).find('[name=id]').val()
 			}
+
+			console.log('startnumber: ' + participant.startnumber + ', endtime: ' + participant.endtime + ', raceId: ' + raceId);
 		} else {
 
 			var raceId = this._id;
