@@ -1,6 +1,10 @@
 Template.raceAddParticipant.helpers({
 	raceLockedStatus: function () {
-		return Session.get("raceLockedStatus");
+		if (Session.get("raceLockedStatus" + this._id) === true) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 });
 
@@ -8,7 +12,7 @@ Template.raceAddParticipant.events({
 	'submit form': function (e) {
 		e.preventDefault();
 
-		if (Session.equals("raceLockedStatus", true)) {
+		if (Session.equals(("raceLockedStatus" + this._id), true)) {
 			console.log('Race locked in submit form');
 			var raceId = this._id;
 
@@ -49,12 +53,12 @@ Template.raceAddParticipant.events({
 		}
 	},
 	'click .lock': function () {
-		if (Session.equals("raceLockedStatus", true)) {
-			console.log('setting raceLockedStatus to false');
-			Session.set("raceLockedStatus", false);
+		if (Session.equals(("raceLockedStatus" + this._id), true)) {
+			console.log('setting raceLockedStatus for raceId ' + this._id + ' to false');
+			Session.set(("raceLockedStatus" + this._id), false);
 		} else {
-			console.log('setting raceLockedStatus to true');
-			Session.set("raceLockedStatus", true);
+			console.log('setting raceLockedStatus ' + this._id + ' to true');
+			Session.set(("raceLockedStatus" + this._id), true);
 		}
 		var p = ParticipantsInRace.find({raceId: this._id}, {sort: {submitted: 1}});
 		var i = 0;

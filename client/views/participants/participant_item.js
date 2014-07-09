@@ -20,6 +20,10 @@ Template.participantItemTiny.events({
 
 Template.participantItemTiny.helpers({
 	raceLockedStatus: function () {
-		return Session.get("raceLockedStatus");
+		if (Session.get("raceLockedStatus" + this.raceId) === true) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 });
