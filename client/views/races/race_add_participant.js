@@ -80,7 +80,12 @@ Template.raceAddParticipant.rendered = function () {
 		document.getElementById('name').focus();
 	}
 
-	$("#name").autocomplete({
+	acName();
+};
+
+var acName = function () {
+	console.log('calling acName()');
+	$('#name').autocomplete({
 		minLength: 0,
 		source: function (request, response) {
 			var pData = Participants.find({name: {$regex: new RegExp(request.term), $options: 'i'}}, {sort: {name: 1}});
@@ -106,7 +111,7 @@ Template.raceAddParticipant.rendered = function () {
 			return false;
 		}
 	});
-};
+}
 
 var participantsData = [
 	{
