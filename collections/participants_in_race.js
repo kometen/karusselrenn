@@ -77,8 +77,6 @@ Meteor.methods({
 		var deltatime = moment(endtime, "HH:mm:ss") - moment(participant.starttime, "HH:mm:ss");
 		var fdelta = moment().startOf('day').milliseconds(deltatime).format("HH:mm:ss");
 
-		console.log('register time, raceId: ' + participant.raceId + ', startnumber: ' + participant.startnumber + ', starttime: ' + participant.starttime + ', endtime: ' + endtime + ', deltatime: ' + deltatime + ', fdelta: ' + fdelta);
-
-		ParticipantsInRace.update({raceId: participant.raceId, startnumber: parseInt(participant.startnumber, 10)}, {$set: { endtime: endtime }} );
+		ParticipantsInRace.update({raceId: participant.raceId, startnumber: parseInt(participant.startnumber, 10)}, {$set: { endtime: endtime, racetime: fdelta }} );
 	}
 });
