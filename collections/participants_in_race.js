@@ -44,5 +44,41 @@ Meteor.methods({
 		var participantId = ParticipantsInRace.upsert(participant._id, participant);
 
 		return participantId;
+	},
+	registerRaceTime: function (postAttributes) {
+		var user = Meteor.user();
+
+		// ensure user is logged in
+		if (!user) {
+			throw new Meteor.Error(401, 'You need to log in to register a participants time');
+		}
+
+		if (!postAttributes.startnumber) {
+			throw new Meteor.Error(422, 'Please fill in the participants startnumber');
+		}
+		if (!postAttributes.endtime) {
+			throw new Meteor.Error(422, 'Please fill in the endtime');
+		}
+
+		// whitelisted keys
+		var participant = _.extend(_.pick(postAttributes, 'startnumber', 'endtime', 'raceId'), {
+			ownerId: user._id,
+			owner: user.username,
+			submitted: new Date().getTime()
+		});
+
+		var tmp = ParticipantsInRace.findOne({raceId: participant.raceId, startnumber: parseInt(participant.startnumber, 10)}, {fields: {starttime: 1}});
+		participant.starttime = tmp.starttime;
+
+		var hours = participant.endtime.substr(0, 2);
+		var minutes = participant.endtime.substr(2, 2);
+		var seconds = participant.endtime.substr(4, 2);
+		var endtime = hours + ':' + minutes + ':' + seconds;
+		var deltatime = moment(endtime, "HH:mm:ss") - moment(participant.starttime, "HH:mm:ss");
+		var fdelta = moment().startOf('day').milliseconds(deltatime).format("HH:mm:ss");
+
+		console.log('register time, raceId: ' + participant.raceId + ', startnumber: ' + participant.startnumber + ', starttime: ' + participant.starttime + ', endtime: ' + endtime + ', deltatime: ' + deltatime + ', fdelta: ' + fdelta);
+
+		ParticipantsInRace.update({raceId: participant.raceId, startnumber: parseInt(participant.startnumber, 10)}, {$set: { endtime: endtime }} );
 	}
 });

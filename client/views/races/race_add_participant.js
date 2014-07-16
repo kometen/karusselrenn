@@ -19,8 +19,15 @@ Template.raceAddParticipant.events({
 			var participant = {
 				startnumber: $(e.target).find('[name=startnumber]').val(),
 				endtime: $(e.target).find('[name=endtime]').val(),
-				participantId: $(e.target).find('[name=id]').val()
+				raceId: raceId
 			}
+
+			Meteor.call('registerRaceTime', participant, function (error, id) {
+				if (error) {
+					return alert(error.reason);
+				}
+				Router.go('racePage', {_id: raceId});
+			});
 
 			console.log('startnumber: ' + participant.startnumber + ', endtime: ' + participant.endtime + ', raceId: ' + raceId);
 		} else {
