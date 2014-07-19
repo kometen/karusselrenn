@@ -1,0 +1,10 @@
+<template name="registerTimePage">
+	{{> raceItem}}
+	{{> raceRegisterTime}}
+
+	<ul class="krend">
+		{{#each participants}}
+			 {{> registeredTime}}
+		{{/each}}
+	</ul>
+</template>

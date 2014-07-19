@@ -91,7 +91,7 @@ Template.raceAddParticipant.rendered = function () {
 };
 
 var acName = function () {
-	console.log('calling acName()');
+//	console.log('calling acName()');
 	$('#name').autocomplete({
 		minLength: 0,
 		source: function (request, response) {
