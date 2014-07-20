@@ -21,5 +21,4 @@ Template.raceRegisterTime.events({
 
 Template.raceRegisterTime.rendered = function () {
 	document.getElementById('startnumber').focus();
-//	document.getElementById('name').focus();
 };
