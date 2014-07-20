@@ -12,18 +12,10 @@
 </template>
 
 <template name="participantItemTiny">
-	{{#if raceLockedStatus}}
-		<div class="krend">
-			<div class="krend-content">
-				<h3><span>{{this.index}}, {{this.time}}, {{this.endtime}}, {{this.racetime}}, {{name}}, {{year}}, {{club}}</span></h3>
-			</div>
+	<div class="krend">
+		<div class="krend-content">
+			<h3><span>{{this.index}}, {{this.time}}, {{name}}, {{year}}, {{club}}</span></h3>
 		</div>
-	{{else}}
-		<div class="krend">
-			<div class="krend-content">
-				<h3><span>{{this.index}}, {{this.time}}, {{name}}, {{year}}, {{club}}</span></h3>
-			</div>
-			<a class="btn btn-danger btn-small pull-right delete" href="#" style="Margin-top:-5px;">Remove participant</a>
-		</div>
-	{{/if}}
+		<a class="btn btn-danger btn-small pull-right delete" href="#" style="Margin-top:-5px;">Remove participant</a>
+	</div>
 </template>

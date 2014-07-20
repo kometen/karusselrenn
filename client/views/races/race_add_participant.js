@@ -1,72 +1,34 @@
-Template.raceAddParticipant.helpers({
-	raceLockedStatus: function () {
-		if (Session.get("raceLockedStatus" + this._id) === true) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-});
-
 Template.raceAddParticipant.events({
 	'submit form': function (e) {
 		e.preventDefault();
 
-		if (Session.equals(("raceLockedStatus" + this._id), true)) {
-			console.log('Race locked in submit form');
-			var raceId = this._id;
+		var raceId = this._id;
+		var interval = this.interval;
+		var startdate = this.date;
+		var starttime = this.time;
 
-			var participant = {
-				startnumber: $(e.target).find('[name=startnumber]').val(),
-				endtime: $(e.target).find('[name=endtime]').val(),
-				raceId: raceId
-			}
-
-			Meteor.call('registerRaceTime', participant, function (error, id) {
-				if (error) {
-					return alert(error.reason);
-				}
-				Router.go('racePage', {_id: raceId});
-			});
-
-			console.log('startnumber: ' + participant.startnumber + ', endtime: ' + participant.endtime + ', raceId: ' + raceId);
-		} else {
-
-			var raceId = this._id;
-			var interval = this.interval;
-			var startdate = this.date;
-			var starttime = this.time;
-
-			var participant = {
-				name: $(e.target).find('[name=name]').val(),
-				year: $(e.target).find('[name=year]').val(),
-				club: $(e.target).find('[name=club]').val(),
-				participantId: $(e.target).find('[name=id]').val(),
-				interval: interval,
-				startdate: startdate,
-				starttime: starttime,	// starttime is used in race_page.js
-				raceId: raceId
-			}
-
-			Meteor.call('addParticipantToRace', participant, function (error, id) {
-				if (error) {
-					return alert(error.reason);
-				}
-				$('#formRaceAddParticipant')[0].reset();
-				Router.go('racePage', {_id: raceId});
-			});
-
-			console.log('raceId: ' + raceId + ', interval: ' + participant.interval + ', date: ' + participant.startdate + ', time: ' + participant.starttime + ', name: ' + participant.name + ', id: ' + participant.participantId);
+		var participant = {
+			name: $(e.target).find('[name=name]').val(),
+			year: $(e.target).find('[name=year]').val(),
+			club: $(e.target).find('[name=club]').val(),
+			participantId: $(e.target).find('[name=id]').val(),
+			interval: interval,
+			startdate: startdate,
+			starttime: starttime,	// starttime is used in race_page.js
+			raceId: raceId
 		}
+
+		Meteor.call('addParticipantToRace', participant, function (error, id) {
+			if (error) {
+				return alert(error.reason);
+			}
+			$('#formRaceAddParticipant')[0].reset();
+			Router.go('racePage', {_id: raceId});
+		});
+
+		console.log('raceId: ' + raceId + ', interval: ' + participant.interval + ', date: ' + participant.startdate + ', time: ' + participant.starttime + ', name: ' + participant.name + ', id: ' + participant.participantId);
 	},
 	'click .lock': function () {
-		if (Session.equals(("raceLockedStatus" + this._id), true)) {
-			console.log('setting raceLockedStatus for raceId ' + this._id + ' to false');
-			Session.set(("raceLockedStatus" + this._id), false);
-		} else {
-			console.log('setting raceLockedStatus ' + this._id + ' to true');
-			Session.set(("raceLockedStatus" + this._id), true);
-		}
 		var p = ParticipantsInRace.find({raceId: this._id}, {sort: {submitted: 1}});
 		var i = 0;
 		p.forEach(function (post) {
@@ -81,12 +43,7 @@ Template.raceAddParticipant.events({
 });
 
 Template.raceAddParticipant.rendered = function () {
-	if (Session.equals(("raceLockedStatus" + this._id), true)) {
-		document.getElementById('startnumber').focus();
-	} else {
-		document.getElementById('name').focus();
-	}
-
+	document.getElementById('name').focus();
 	acName();
 };
 
