@@ -5,6 +5,9 @@ Template.raceItem.helpers({
 	date: function () {
 		return moment(this.date, "MM/DD/YYYY").format("DD.MM.YYYY");
 	},
+	raceLocked: function () {
+		return this.locked;
+	},
 	domain: function () {
 		return 'Blåbærsyltetøj';
 	}

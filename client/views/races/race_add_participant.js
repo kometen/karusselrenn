@@ -29,6 +29,7 @@ Template.raceAddParticipant.events({
 		console.log('raceId: ' + raceId + ', interval: ' + participant.interval + ', date: ' + participant.startdate + ', time: ' + participant.starttime + ', name: ' + participant.name + ', id: ' + participant.participantId);
 	},
 	'click .lock': function () {
+		Races.update(this._id, {$set: { locked: true}} );
 		var p = ParticipantsInRace.find({raceId: this._id}, {sort: {submitted: 1}});
 		var i = 0;
 		p.forEach(function (post) {
@@ -38,7 +39,7 @@ Template.raceAddParticipant.events({
 			post.startnumber = i;
 			ParticipantsInRace.update(post._id,{$set: { startnumber: i }} );
 		});
-//		console.log('lock race with raceId ' + this._id);
+		console.log('lock race with raceId ' + this._id);
 	}
 });
 

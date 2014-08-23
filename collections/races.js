@@ -8,7 +8,7 @@ Races.allow({
 Races.deny({
 	update: function (userId, doc, fields) {
 		// Only edit specified fields
-		return (_.without(fields, 'name', 'location', 'date', 'time', 'interval').length > 0);
+		return (_.without(fields, 'name', 'location', 'date', 'time', 'interval', 'locked').length > 0);
 	}
 });
 

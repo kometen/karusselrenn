@@ -1,5 +1,5 @@
 Template.racesList.helpers({
 	races: function () {
-		return Races.find({}, {sort: {name: 1}});
+		return Races.find({}, {sort: {date: 1}});
 	}
 });
