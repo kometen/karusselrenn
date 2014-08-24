@@ -39,7 +39,7 @@ Template.raceAddParticipant.events({
 			post.startnumber = i;
 			ParticipantsInRace.update(post._id,{$set: { startnumber: i }} );
 		});
-		console.log('lock race with raceId ' + this._id);
+//		console.log('lock race with raceId ' + this._id);
 	}
 });
 

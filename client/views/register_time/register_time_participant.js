@@ -16,7 +16,12 @@ Template.raceRegisterTime.events({
 			}
 			Router.go('registerTimePage', {_id: raceId});
 		});
+	},
+	'click .unlock': function () {
+		Races.update(this._id, {$set: { locked: false}} );
+//		console.log('unlock race with raceId ' + this._id);
 	}
+
 });
 
 Template.raceRegisterTime.rendered = function () {
