@@ -6,6 +6,7 @@ Template.raceAddParticipant.events({
 		var interval = this.interval;
 		var startdate = this.date;
 		var starttime = this.time;
+		var racestarttime = this.time;
 
 		var participant = {
 			name: $(e.target).find('[name=name]').val(),
@@ -15,6 +16,7 @@ Template.raceAddParticipant.events({
 			interval: interval,
 			startdate: startdate,
 			starttime: starttime,	// starttime is used in race_page.js
+			racestarttime: racestarttime,
 			raceId: raceId
 		}
 
@@ -33,13 +35,11 @@ Template.raceAddParticipant.events({
 		var p = ParticipantsInRace.find({raceId: this._id}, {sort: {submitted: 1}});
 		var i = 0;
 		p.forEach(function (post) {
-//			console.log('i: ' + i + ', time: ' + moment(post.starttime, "HH:mm").add('seconds', post.interval * i).format("HH:mm:ss"));
-			ParticipantsInRace.update(post._id,{$set: { starttime: moment(post.starttime, "HH:mm").add('seconds', post.interval * i).format("HH:mm:ss") }} );
+			ParticipantsInRace.update(post._id,{$set: { starttime: moment(post.racestarttime, "HH:mm").second(post.interval * i).format("HH:mm:ss"),  startnumber: (i + 1) }} );
+//			console.log('i: ' + i + ', starttime: ' + post.racestarttime + ', time: ' + moment(post.racestarttime, "HH:mm").seconds(post.interval * i).format("HH:mm:ss"));
 			i++;
-			post.startnumber = i;
-			ParticipantsInRace.update(post._id,{$set: { startnumber: i }} );
 		});
-//		console.log('lock race with raceId ' + this._id);
+		console.log('lock race with raceId ' + this._id);
 	}
 });
 
