@@ -2,9 +2,6 @@ Template.clubEdit.events({
 	'submit form': function (e) {
 		e.preventDefault();
 
-//		delete Session.keys['club_id'];
-//		delete Session.keys['edit_club'];
-
 		var currentClubId = this._id;
 
 		var clubProperties = {

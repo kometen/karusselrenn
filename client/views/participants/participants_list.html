@@ -4,9 +4,14 @@
 			<li><a href="{{pathFor 'participantSubmit'}}">New Participant</a></li>
 		</ul>
 	</div>
-	<div class="participants">
-		{{#each participants}}
-			{{> participantItem}}
-		{{/each}}
+	<div class="row">
+		<div class="participants span8">
+			{{#each participants}}
+				{{> participantItem}}
+			{{/each}}
+		</div>
+		<div class="span4">
+			{{> participantDetails}}
+		</div>
 	</div>
 </template>

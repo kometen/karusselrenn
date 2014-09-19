@@ -4,7 +4,18 @@ Template.participantItem.helpers({
 	},
 	domain: function () {
 		return 'Blåbærsyltetøj';
-	}});
+	}
+});
+
+Template.participantItem.events({
+	'click input.details': function (e) {
+		e.preventDefault();
+
+		console.log('participant id: '+ this._id);
+		delete Session.keys['edit_participant'];
+		Session.set('participant_id', this._id);
+	}
+});
 
 Template.participantItemTiny.events({
 	'click .delete': function (e) {

@@ -14,7 +14,7 @@ Template.participantEdit.events({
 			if (error) {
 				return alert(error.reason);
 			} else {
-				Router.go('participantPage', {_id: currentParticipantId});
+				Session.set('edit_participant', 'changed');
 			}
 		});
 	},
@@ -25,9 +25,14 @@ Template.participantEdit.events({
 		if (confirm('Delete participant?')) {
 			var currentParticipantId = this._id;
 			Participants.remove(currentParticipantId);
-			Router.go('participantsList')
 		}
+	},
+
+	'click .cancel': function (e) {
+		e.preventDefault();
+		Session.set('edit_participant', 'changed');
 	}
+
 });
 
 Template.participantEdit.rendered = function () {
