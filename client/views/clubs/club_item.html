@@ -1,12 +1,13 @@
 <template name="clubItem">
-	<div class="krend col-2-3">
+	<div class="krend">
 		<div class="krend-content">
 			<h3><span>{{name}}, {{description}}, {{city}}</span></h3>
 			<p>
 				Added by {{owner}}
 				{{#if ownClub}}<a href="{{pathFor 'clubEdit'}}">Edit</a>{{/if}}
 			</p>
-		</div>
+			</div>
+		<input type="button" class="discuss btn details" value="Details1">
 		<a href="{{pathFor 'clubPage'}}" class="discuss btn">Details</a>
 	</div>
 </template>

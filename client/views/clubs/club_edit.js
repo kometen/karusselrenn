@@ -2,6 +2,9 @@ Template.clubEdit.events({
 	'submit form': function (e) {
 		e.preventDefault();
 
+//		delete Session.keys['club_id'];
+//		delete Session.keys['edit_club'];
+
 		var currentClubId = this._id;
 
 		var clubProperties = {
@@ -14,7 +17,7 @@ Template.clubEdit.events({
 			if (error) {
 				return alert(error.reason);
 			} else {
-				Router.go('clubPage', {_id: currentClubId});
+				Session.set('edit_club', 'changed');
 			}
 		});
 	},
@@ -25,8 +28,12 @@ Template.clubEdit.events({
 		if (confirm('Delete club?')) {
 			var currentClubId = this._id;
 			Clubs.remove(currentClubId);
-			Router.go('clubsList')
 		}
+	},
+
+	'click .cancel': function (e) {
+		e.preventDefault();
+		Session.set('edit_club', 'changed');
 	}
 });
 

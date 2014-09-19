@@ -4,9 +4,14 @@
 			<li><a href="{{pathFor 'clubSubmit'}}">New Club</a></li>
 		</ul>
 	</div>
-	<div class="clubs">
-		{{#each clubs}}
-			{{> clubItem}}
-		{{/each}}
+	<div class="row">
+		<div class="clubs span8">
+			{{#each clubs}}
+				{{> clubItem}}
+			{{/each}}
+		</div>
+		<div class="span4">
+			{{> clubDetails}}
+		</div>
 	</div>
 </template>
