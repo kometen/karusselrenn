@@ -11,7 +11,7 @@ Template.clubItem.events({
 	'click input.details': function (e) {
 		e.preventDefault();
 
-		delete Session.keys['edit_club'];
+		Session.set('edit_club', 'changed');
 		Session.set('club_id', this._id);
 	}
 });
