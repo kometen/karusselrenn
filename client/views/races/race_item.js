@@ -12,3 +12,12 @@ Template.raceItem.helpers({
 		return 'Blåbærsyltetøj';
 	}
 });
+
+Template.raceItem.events({
+	'click input.details': function (e) {
+		e.preventDefault();
+
+		Session.set('edit_race', 'changed');
+		Session.set('race_id', this._id);
+	}
+});

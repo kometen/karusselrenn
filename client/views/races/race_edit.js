@@ -17,7 +17,7 @@ Template.raceEdit.events({
 			if (error) {
 				return alert(error.reason);
 			} else {
-				Router.go('racePage', {_id: currentRaceId});
+				Session.set('edit_race', 'changed');
 			}
 		});
 	},
@@ -28,7 +28,11 @@ Template.raceEdit.events({
 		if (confirm('Delete race?')) {
 			var currentRaceId = this._id;
 			Races.remove(currentRaceId);
-			Router.go('racesList')
 		}
+	},
+
+	'click .cancel': function (e) {
+		e.preventDefault();
+		Session.set('edit_race', 'changed');
 	}
 });

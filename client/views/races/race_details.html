@@ -3,11 +3,11 @@
 		<div class="krend-content">
 		{{#with race}}
 			Race name: {{race.name}}<br />
-			Location: {{club.location}}<br />
-			Date: {{club.date}}
-			Time: {{club.time}}
-			Interval: {{club.interval}}
-			{{#if ownClub}}<br /><input type="button" class="discuss btn edit" style="float: left" value="Edit">{{/if}}
+			Location: {{race.location}}<br />
+			Date: {{race.date}}<br />
+			Time: {{race.time}}<br />
+			Interval: {{race.interval}}
+			{{#if ownRace}}<br /><input type="button" class="discuss btn edit" style="float: left" value="Edit">{{/if}}
 		{{else}}
 			Race name:<br />
 			Location:<br />
