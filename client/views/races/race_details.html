@@ -1,0 +1,25 @@
+<template name="raceDetails">
+	<div class="krend">
+		<div class="krend-content">
+		{{#with race}}
+			Race name: {{race.name}}<br />
+			Location: {{club.location}}<br />
+			Date: {{club.date}}
+			Time: {{club.time}}
+			Interval: {{club.interval}}
+			{{#if ownClub}}<br /><input type="button" class="discuss btn edit" style="float: left" value="Edit">{{/if}}
+		{{else}}
+			Race name:<br />
+			Location:<br />
+			Date:<br />
+			Time:<br />
+			Interval:
+		{{/with}}
+		{{#with edit_race}}
+			<br />
+			<br />
+			{{> raceEdit}}
+		{{/with}}
+		</div>
+	</div>
+</template>
