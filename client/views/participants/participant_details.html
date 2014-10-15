@@ -1,0 +1,21 @@
+<template name="participantDetails">
+	<div class="krend">
+		<div class="krend-content">
+		{{#with participant}}
+			Name: {{participant.name}}<br />
+			Year: {{participant.year}}<br />
+			Club: {{participant.club}}
+			{{#if ownParticipant}}<br /><input type="button" class="discuss btn edit" style="float: left" value="Edit">{{/if}}
+		{{else}}
+			Name:<br />
+			Year:<br />
+			Club:
+		{{/with}}
+		{{#with edit_participant}}
+			<br />
+			<br />
+			{{> participantEdit}}
+		{{/with}}
+		</div>
+	</div>
+</template>

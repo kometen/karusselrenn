@@ -4,9 +4,11 @@
 			<li><a href="{{pathFor 'raceSubmit'}}">New Race</a></li>
 		</ul>
 	</div>
-	<div class="races">
-		{{#each races}}
-			{{> raceItem}}
-		{{/each}}
+	<div class="row-fluid">
+		<div class="races span8">
+			{{#each races}}
+				{{> raceItem}}
+			{{/each}}
+		</div>
 	</div>
 </template>

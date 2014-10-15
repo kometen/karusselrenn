@@ -1,0 +1,21 @@
+<template name="clubDetails">
+	<div class="krend">
+		<div class="krend-content">
+		{{#with club}}
+			Club: {{club.name}}<br />
+			Description: {{club.description}}<br />
+			City: {{club.city}}
+			{{#if ownClub}}<br /><input type="button" class="discuss btn edit" style="float: left" value="Edit">{{/if}}
+		{{else}}
+			Club:<br />
+			Description:<br />
+			City:
+		{{/with}}
+		{{#with edit_club}}
+			<br />
+			<br />
+			{{> clubEdit}}
+		{{/with}}
+		</div>
+	</div>
+</template>
