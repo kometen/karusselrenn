@@ -1,15 +1,13 @@
 <template name="registerTimePage">
 	<div class="row-fluid">
-	<div class="span8">
-		{{> raceInfo}}
-		<br />
-		<br />
-		<br />
-		{{> raceRegisterTime}}
+		<div class="span8">
+			{{> raceInfo}}
+			<br />
+			{{> raceRegisterTime}}
 
-			{{#each participants}}
-				 {{> registeredTime}}
-			{{/each}}
-	</div>
+				{{#each participants}}
+					 {{> registeredTime}}
+				{{/each}}
+		</div>
 	</div>
 </template>

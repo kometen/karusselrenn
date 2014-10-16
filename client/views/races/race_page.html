@@ -1,15 +1,13 @@
 <template name="racePage">
-	{{> raceItem}}
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-	{{> raceAddParticipant}}
+	<div class="row-fluid">
+		<div class="span8">
+			{{> raceInfo}}
+			<br />
+			{{> raceAddParticipant}}
 
-	<ul class="krend">
-		{{#each participants}}
-			 {{> participantItemTiny}}
-		{{/each}}
-	</ul>
+			{{#each participants}}
+				 {{> participantItemTiny}}
+			{{/each}}
+		</div>
+	</div>
 </template>
