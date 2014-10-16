@@ -15,4 +15,4 @@ Meteor.publish('participantsInRace', function (raceId) {
 });
 
 // kadira.io/academy/getting-started-with-kadira/
-Kadira.connect('hQFM3Y2j4foZ7zvpy', '96082248-ce44-4ecc-b07f-90d6eff8b432')
+//Kadira.connect('hQFM3Y2j4foZ7zvpy', '96082248-ce44-4ecc-b07f-90d6eff8b432')

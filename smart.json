@@ -5,10 +5,6 @@
     "accounts-ui-bootstrap-dropdown": {},
     "jquery-ui": {},
     "bootstrap-timepicker": {},
-    "moment": {},
-    "kadira": {
-	    "appId": "hQFM3Y2j4foZ7zvpy",
-    	"appSecret": "96082248-ce44-4ecc-b07f-90d6eff8b432"
-    }
+    "moment": {}
   }
 }

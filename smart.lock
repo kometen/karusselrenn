@@ -7,8 +7,7 @@
       "accounts-ui-bootstrap-dropdown": {},
       "jquery-ui": {},
       "bootstrap-timepicker": {},
-      "moment": {},
-      "kadira": {}
+      "moment": {}
     },
     "packages": {
       "iron-router": {
@@ -40,11 +39,6 @@
         "git": "https://github.com/acreeger/meteor-moment.git",
         "tag": "v2.8.1",
         "commit": "722ea63783d594341023836b7d418ab2567dab8c"
-      },
-      "kadira": {
-        "git": "https://github.com/meteorhacks/kadira.git",
-        "tag": "v2.4.13",
-        "commit": "1f3c1a427084af5a2eca2e299eb65bc01387df8a"
       },
       "iron-layout": {
         "git": "https://github.com/EventedMind/iron-layout.git",
