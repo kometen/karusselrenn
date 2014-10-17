@@ -2,12 +2,14 @@
 	<div class="row-fluid">
 		<div class="span8">
 			{{> raceInfo}}
-			<br />
 			{{> raceRegisterTime}}
 
 				{{#each participants}}
 					 {{> registeredTime}}
 				{{/each}}
+		</div>
+		<div class="span4">
+			{{> raceSearchParticipants}}
 		</div>
 	</div>
 </template>
