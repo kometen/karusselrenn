@@ -1,5 +1,5 @@
 acClub = function () {
-	$("#club").autocomplete({
+	$("#raceclub").autocomplete({
 		minLength: 0,
 		source: function (request, response) {
 			var cData = Clubs.find({name: {$regex: new RegExp(request.term), $options: 'i'}}, {sort: {name: 1}});
@@ -13,7 +13,7 @@ acClub = function () {
 			response(suggestions)
 		},
 		focus: function (event, ui) {
-			$("#club").val(ui.item.value)
+			$("#raceclub").val(ui.item.value)
 			return false;
 		},
 		select: function (event, ui) {

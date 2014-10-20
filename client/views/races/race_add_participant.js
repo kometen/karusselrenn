@@ -28,7 +28,7 @@ Template.raceAddParticipant.events({
 			Router.go('racePage', {_id: raceId});
 		});
 
-		console.log('raceId: ' + raceId + ', interval: ' + participant.interval + ', date: ' + participant.startdate + ', time: ' + participant.starttime + ', name: ' + participant.name + ', id: ' + participant.participantId);
+		//console.log('raceId: ' + raceId + ', interval: ' + participant.interval + ', date: ' + participant.startdate + ', time: ' + participant.starttime + ', name: ' + participant.name + ', id: ' + participant.participantId);
 	},
 	'click .lock': function () {
 		Races.update(this._id, {$set: { locked: true}} );
