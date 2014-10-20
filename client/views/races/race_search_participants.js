@@ -1,10 +1,16 @@
+Template.raceSearchParticipants.helpers({
+	search_name: function () {
+		return Session.get('search_name');
+	}
+})
+
 Template.raceSearchParticipants.rendered = function () {
 //	document.getElementById('search_name').focus();
-	acParticipant();
+	acParticipants();
 };
 
-var acParticipant = function () {
-	console.log('calling acParticipant()');
+var acParticipants = function () {
+//	console.log('calling acParticipants()');
 	$('#search_name').autocomplete({
 		minLength: 0,
 		source: function (request, response) {
@@ -17,17 +23,17 @@ var acParticipant = function () {
 				suggestions.push({value: s[i].name, year: s[i].year, club: s[i].club, _id: s[i]._id});
 			}
 			response(suggestions)
-//			response(participantsData)
 		},
 		focus: function (event, ui) {
 			$("#search_name").val(ui.item.value)
 			return false;
 		},
 		select: function (event, ui) {
-			$("#name").val(ui.item.value);
-			$("#year").val(ui.item.year);
-			$("#club").val(ui.item.club);
-			$("#id").val(ui.item._id);
+			Session.set('search_name', ui.item.value);
+			$("#search_name").val(ui.item.value);
+			$("#search_year").val(ui.item.year);
+			$("#search_club").val(ui.item.club);
+			$("#search_id").val(ui.item._id);
 			return false;
 		}
 	});
