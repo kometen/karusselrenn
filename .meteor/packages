@@ -5,10 +5,12 @@
 
 standard-app-packages
 bootstrap
-iron-router
-spin
-accounts-ui-bootstrap-dropdown
 accounts-password
-jquery-ui
-moment
-bootstrap-timepicker
+iron:router
+sacha:spin
+mrt:accounts-ui-bootstrap-dropdown
+mrt:jquery-ui
+mrt:moment
+benjaminrh:bootstrap-timepicker
+cwohlman:bootboxjs
+

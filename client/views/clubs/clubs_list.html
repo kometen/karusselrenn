@@ -11,7 +11,7 @@
 			{{/each}}
 		</div>
 		<div class="span4">
-			{{> clubDetails}}
+			{{#if loggedIn }} {{> clubDetails}} {{/if}}
 		</div>
 	</div>
 </template>

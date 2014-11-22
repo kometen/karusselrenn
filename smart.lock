@@ -3,43 +3,12 @@
   "dependencies": {
     "basePackages": {
       "iron-router": {},
-      "spin": {},
       "accounts-ui-bootstrap-dropdown": {},
       "jquery-ui": {},
       "bootstrap-timepicker": {},
       "moment": {}
     },
     "packages": {
-      "iron-router": {
-        "git": "https://github.com/EventedMind/iron-router.git",
-        "tag": "v0.8.2",
-        "commit": "05415a8891ea87a00fb1e2388585f2ca5a38e0da"
-      },
-      "spin": {
-        "git": "https://github.com/SachaG/meteor-spin.git",
-        "tag": "v2.0.4",
-        "commit": "f7b1e12a7caff1283cdb3671a393c182d0ae9862"
-      },
-      "accounts-ui-bootstrap-dropdown": {
-        "git": "https://github.com/erobit/meteor-accounts-ui-bootstrap-dropdown.git",
-        "tag": "v0.8.3",
-        "commit": "a7af8a52e4e74db020a69b158a8f992797b8b0b0"
-      },
-      "jquery-ui": {
-        "git": "https://github.com/TimHeckel/meteor-jquery-ui.git",
-        "tag": "v1.9.2",
-        "commit": "c437d45edcf1367df8d5ffa8bad2867758030bd2"
-      },
-      "bootstrap-timepicker": {
-        "git": "https://github.com/BenjaminRH/meteor-bootstrap-timepicker.git",
-        "tag": "v0.1.0",
-        "commit": "fa61edb82752e5c682dbaafd5412f4d29f8b72e0"
-      },
-      "moment": {
-        "git": "https://github.com/acreeger/meteor-moment.git",
-        "tag": "v2.8.1",
-        "commit": "722ea63783d594341023836b7d418ab2567dab8c"
-      },
       "iron-layout": {
         "git": "https://github.com/EventedMind/iron-layout.git",
         "tag": "v0.2.0",
