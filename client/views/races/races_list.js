@@ -8,12 +8,14 @@ Template.racesList.helpers({
 });
 
 Template.racesList.events({
+
 	'click input.new': function (e) {
 		e.preventDefault();
 
-		bootbox.dialog({
-			title: "Enter race details",
-			message:'<form class="form-horizontal"> ' +
+		// stackoverflow.com/questions/22009649/how-to-create-a-bootbox-prompt-with-a-bootstrap-datepicker-as-input
+
+		function BootboxContent(){    
+            var frm_str = '<form class="form-horizontal"> ' +
 					'<div class="form-group"> ' +
 						'<label class="control-label" for="name">Name</label> ' +
 						'<div class="controls"> ' +
@@ -29,13 +31,13 @@ Template.racesList.events({
 					'<div class="form-group"> ' +
 						'<label class="control-label" for="date">Date</label> ' +
 						'<div class="controls"> ' +
-							'<input id="date" name="date" type="text" placeholder="Date"> ' +
+							'<input class="datepicker date" id="date" name="date" type="text" placeholder="Date"> ' +
 						'</div> ' +
 					'</div> ' +
 					'<div class="form-group"> ' +
 						'<label class="control-label" for="time">Time</label> ' +
 						'<div class="controls"> ' +
-							'<input id="time" name="time" type="text" placeholder="Time"> ' +
+							'<input class="timepicker" id="time" name="time" type="text" placeholder="Time"> ' +
 						'</div> ' +
 					'</div> ' +
 					'<div class="form-group"> ' +
@@ -44,8 +46,25 @@ Template.racesList.events({
 							'<input id="interval" name="interval" type="text" placeholder="Interval"> ' +
 						'</div> ' +
 					'</div> ' +
-				'</form>',
-			buttons: {
+				'</form>';
+
+    	    var object = $('<div/>').html(frm_str).contents();
+
+        	object.find('.date').datepicker({
+            	format: 'dd-mm-yyyy',
+	            autoclose: true}).on('changeDate', function (ev) {
+    	           $(this).blur();
+        	       $(this).datepicker('hide');
+        	});
+
+        	return object
+	    }
+
+	    //Show the datepicker in the bootbox
+    	bootbox.dialog({
+        	message: BootboxContent,
+	        title: "Enter race details",
+    	    buttons: {
 				success: {
 					label: "Save",
 					className: "btn-success",
@@ -58,14 +77,8 @@ Template.racesList.events({
 							interval: $('#interval').val()
 						}
 						console.log("add race with name " + race.name + " at " + race.location);
-						Meteor.call('postRace', race, function (error, id) {
-							if (error) {
-								return alert(error.reason);
-							}
-							Router.go('racePage', {_id: id});
-						});
-					}
-				},
+        			}
+			    },
 				cancel: {
 					label: "Cancel",
 					className: "btn-default",
@@ -75,5 +88,5 @@ Template.racesList.events({
 				}
 			}
 		});
-	}
+    }
 });
