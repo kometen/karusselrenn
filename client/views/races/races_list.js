@@ -14,7 +14,7 @@ Template.racesList.events({
 
 		// stackoverflow.com/questions/22009649/how-to-create-a-bootbox-prompt-with-a-bootstrap-datepicker-as-input
 
-		function BootboxContent(){    
+		function BootboxContent(){
             var frm_str = '<form class="form-horizontal"> ' +
 					'<div class="form-group"> ' +
 						'<label class="control-label" for="name">Name</label> ' +
@@ -31,7 +31,7 @@ Template.racesList.events({
 					'<div class="form-group"> ' +
 						'<label class="control-label" for="date">Date</label> ' +
 						'<div class="controls"> ' +
-							'<input class="datepicker date" id="date" name="date" type="text" placeholder="Date"> ' +
+							'<input class="date" id="date" name="date" type="text" placeholder="Date"> ' +
 						'</div> ' +
 					'</div> ' +
 					'<div class="form-group"> ' +
@@ -77,6 +77,12 @@ Template.racesList.events({
 							interval: $('#interval').val()
 						}
 						console.log("add race with name " + race.name + " at " + race.location);
+                        Meteor.call('postRace', race, function (error, id) {
+                            if (error) {
+                                return alert(error.reason);
+                            }
+                            Router.go('racePage', {_id: id});
+                        });
         			}
 			    },
 				cancel: {
