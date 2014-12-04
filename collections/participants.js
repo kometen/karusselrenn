@@ -8,7 +8,7 @@ Participants.allow({
 Participants.deny({
 	update: function (userId, doc, fields) {
 		// Only edit specified fields
-		return (_.without(fields, 'name', 'year', 'club').length > 0);
+		return (_.without(fields, 'name', 'year', 'gender', 'club').length > 0);
 	}
 });
 
@@ -27,12 +27,15 @@ Meteor.methods({
 		if (!postAttributes.year) {
 			throw new Meteor.Error(422, 'Please fill in the year the participant was born');
 		}
+		if (!postAttributes.gender) {
+			throw new Meteor.Error(422, 'Please fill in the participants gender');
+		}
 		if (!postAttributes.club) {
 			throw new Meteor.Error(422, 'Please fill in the name of the club');
 		}
 
 		// whitelisted keys
-		var participant = _.extend(_.pick(postAttributes, 'name', 'year', 'club'), {
+		var participant = _.extend(_.pick(postAttributes, 'name', 'year', 'gender', 'club'), {
 			ownerId: user._id,
 			owner: user.username,
 			submitted: new Date().getTime()

@@ -4,11 +4,13 @@
 		{{#with participant}}
 			Name: {{participant.name}}<br />
 			Year: {{participant.year}}<br />
+			Gender: {{participant.gender}}<br />
 			Club: {{participant.club}}
 			{{#if ownParticipant}}<br /><input type="button" class="discuss btn edit" style="float: left" value="Edit">{{/if}}
 		{{else}}
 			Name:<br />
 			Year:<br />
+			Gender:<br />
 			Club:
 		{{/with}}
 		{{#with edit_participant}}

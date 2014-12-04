@@ -7,6 +7,7 @@ Template.participantEdit.events({
 		var participantProperties = {
 			name: $(e.target).find('[name=name]').val(),
 			year: $(e.target).find('[name=year]').val(),
+			gender: $(e.target).find('[name=gender]').val(),
 			club: $(e.target).find('[name=club]').val()
 		}
 
