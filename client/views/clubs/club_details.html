@@ -2,18 +2,18 @@
 	<div class="krend">
 		<div class="krend-content">
 		{{#with club}}
-			Club: {{club.name}}<br />
-			Description: {{club.description}}<br />
-			City: {{club.city}}
+			<p>Club: {{club.name}}</p>
+			<p>Description: {{club.description}}</p>
+			<p>City: {{club.city}}</p>
 			{{#if ownClub}}<br /><input type="button" class="discuss btn edit" style="float: left" value="Edit">{{/if}}
 		{{else}}
-			Club:<br />
-			Description:<br />
-			City:
+			<p>Club:</p>
+			<p>Description:</p>
+			<p>City:</p>
 		{{/with}}
 		{{#with edit_club}}
-			<br />
-			<br />
+			<p />
+			<p />
 			{{> clubEdit}}
 		{{/with}}
 		</div>

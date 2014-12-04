@@ -1,12 +1,5 @@
 <template name="participantsList">
-	<div class="nav-collapse collapse">
-		<ul class="nav">
-			<li><a href="{{pathFor 'participantSubmit'}}">New Participant</a></li>
-		</ul>
-		<ul class="nav">
-			<input type="button" class="discuss btn new" value="New Participant">
-		</ul>
-	</div>
+	{{ #if loggedIn }} {{> participantNewButton }} {{ /if }}
 	<div class="row-fluid">
 		<div class="participants span8">
 			{{#each participants}}

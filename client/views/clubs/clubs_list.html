@@ -1,9 +1,5 @@
 <template name="clubsList">
-	<div class="nav-collapse collapse">
-		<ul class="nav">
-			<input type="button" class="discuss btn new" value="New Club">
-		</ul>
-	</div>
+	{{ #if loggedIn }} {{> clubNewButton }} {{ /if }}
 	<div class="row-fluid">
 		<div class="clubs span8">
 			{{#each clubs}}
