@@ -2,18 +2,18 @@
 	<div class="krend">
 		<div class="krend-content">
 		{{#with race}}
-			Race name: {{race.name}}<br />
-			Location: {{race.location}}<br />
-			Date: {{race.date}}<br />
-			Time: {{race.time}}<br />
-			Interval: {{race.interval}}
+			<p>Race name: {{race.name}}</p>
+			<p>Location: {{race.location}}</p>
+			<p>Date: {{race.date}}</p>
+			<p>Time: {{race.time}}</p>
+			<p>Interval: {{race.interval}}</p>
 			{{#if ownRace}}<br /><input type="button" class="discuss btn edit" style="float: left" value="Edit">{{/if}}
 		{{else}}
-			Race name:<br />
-			Location:<br />
-			Date:<br />
-			Time:<br />
-			Interval:
+			<p>Race name:</p>
+			<p>Location:</p>
+			<p>Date:</p>
+			<p>Time:</p>
+			<p>Interval:</p>
 		{{/with}}
 		{{#with edit_race}}
 			<br />
