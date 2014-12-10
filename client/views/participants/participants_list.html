@@ -1,5 +1,5 @@
 <template name="participantsList">
-	{{ #if loggedIn }} {{> participantNewButton }} {{ /if }}
+	{{ #if loggedIn }} <ul class="nav kr-padding">{{> participantNewButton }}</ul> {{ /if }}
 	<div class="row-fluid">
 		<div class="participants span8">
 			{{#each participants}}
