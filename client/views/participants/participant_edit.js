@@ -7,9 +7,11 @@ Template.participantEdit.events({
 		var participantProperties = {
 			name: $(e.target).find('[name=name]').val(),
 			year: $(e.target).find('[name=year]').val(),
-			gender: $(e.target).find('[name=gender]').val(),
+			gender: $(e.target).find("input[name='gender']:checked").val(),
 			club: $(e.target).find('[name=club]').val()
 		}
+
+		console.log('name: ' + participantProperties.name + ', gender: ' + participantProperties.gender);
 
 		Participants.update(currentParticipantId, {$set: participantProperties}, function (error) {
 			if (error) {
