@@ -5,14 +5,12 @@ ParticipantsInRace.allow({
 	remove: ownsParticipantsInRace
 });
 
-/*
 ParticipantsInRace.deny({
 	update: function (userId, doc, fields) {
 		// Only edit specified fields
-		return (_.without(fields, 'name', 'year', 'club').length > 0);
+		return (_.without(fields, 'name', 'year', 'gender', 'club').length > 0);
 	}
 });
-*/
 
 Meteor.methods({
 	addParticipantToRace: function (postAttributes) {
