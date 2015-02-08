@@ -40,7 +40,7 @@ Template.participantItemTiny.events({
                             '<input id="male" name="gender" value="male" type="radio">Male ' +
                         '</div> ' +
                         '<div class="controls"> ' +
-                            '<input id="female" name="gender" value="female" type="radio" checked="female">Female ' +
+                            '<input id="female" name="gender" value="female" type="radio" >Female ' +
                         '</div> ' +
                     '</div> ' +
                     '<div class="form-group"> ' +
