@@ -16,8 +16,10 @@
 			<h3><span>{{this.index}}, {{this.time}}, {{name}}, {{year}}, {{gender}}, {{club}}</span></h3>
 		</div>
 		<div class="control-group">
-			<a class="btn btn-danger btn-normal pull-right delete" href="#" style="margin-left:4px;">Remove</a>
-			<a class="btn btn-primary btn-normal pull-right edit" href="#">Edit</a>
+			{{#if ownParticipant}}
+				<a class="btn btn-danger btn-normal pull-right delete" href="#" style="margin-left:4px;">Remove</a>
+				<a class="btn btn-primary btn-normal pull-right edit" href="#">Edit</a>
+			{{/if}}
 		</div>
 	</div>
 </template>

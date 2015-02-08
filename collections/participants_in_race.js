@@ -8,7 +8,10 @@ ParticipantsInRace.allow({
 ParticipantsInRace.deny({
 	update: function (userId, doc, fields) {
 		// Only edit specified fields
-		return (_.without(fields, 'name', 'year', 'gender', 'club').length > 0);
+		if ((_.without(fields, 'club', 'gender', 'name', 'starttime', 'startnumber', 'year').length > 0)) {
+			console.log('without field: ' + fields);
+		}
+		return (_.without(fields, 'club', 'gender', 'name', 'starttime', 'startnumber', 'year').length > 0);
 	}
 });
 
@@ -32,7 +35,7 @@ Meteor.methods({
 		}
 
 		// whitelisted keys
-		var participant = _.extend(_.pick(postAttributes, 'name', 'year', 'club', 'participantId', 'raceId', 'interval', 'startdate', 'starttime', 'racestarttime'), {
+		var participant = _.extend(_.pick(postAttributes, 'name', 'year', 'gender', 'club', 'participantId', 'raceId', 'interval', 'startdate', 'starttime', 'racestarttime'), {
 			_id: postAttributes.participantId + '_' + postAttributes.raceId,
 			ownerId: user._id,
 			owner: user.username,

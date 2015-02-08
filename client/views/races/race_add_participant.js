@@ -11,6 +11,7 @@ Template.raceAddParticipant.events({
 		var participant = {
 			name: $(e.target).find('[name=name]').val(),
 			year: $(e.target).find('[name=year]').val(),
+			gender: $(e.target).find('[name=gender]').val(),
 			club: $(e.target).find('[name=club]').val(),
 			participantId: $(e.target).find('[name=id]').val(),
 			interval: interval,
@@ -36,7 +37,7 @@ Template.raceAddParticipant.events({
 		var i = 0;
 		p.forEach(function (post) {
 			ParticipantsInRace.update(post._id,{$set: { starttime: moment(post.racestarttime, "HH:mm").second(post.interval * i).format("HH:mm:ss"),  startnumber: (i + 1) }} );
-//			console.log('i: ' + i + ', starttime: ' + post.racestarttime + ', time: ' + moment(post.racestarttime, "HH:mm").seconds(post.interval * i).format("HH:mm:ss"));
+			//console.log('i: ' + i + ', starttime: ' + post.racestarttime + ', time: ' + moment(post.racestarttime, "HH:mm").seconds(post.interval * i).format("HH:mm:ss"));
 			i++;
 		});
 		console.log('lock race with raceId ' + this._id);
@@ -59,7 +60,7 @@ var acName = function () {
 //			console.log('request.term: ' + request.term);
 			for (var i = 0; i < p.length; i++) {
 //				console.log('p[' + i + '].name: ' + p[i].name + ', club: ' + p[i].club + ', id: ' + p[i]._id);
-				suggestions.push({value: p[i].name, year: p[i].year, club: p[i].club, _id: p[i]._id});
+				suggestions.push({value: p[i].name, year: p[i].year, club: p[i].club, gender: p[i].gender, _id: p[i]._id});
 			}
 			response(suggestions)
 //			response(participantsData)
@@ -72,6 +73,7 @@ var acName = function () {
 			$("#name").val(ui.item.value);
 			$("#year").val(ui.item.year);
 			$("#club").val(ui.item.club);
+			$("#gender").val(ui.item.gender);
 			$("#id").val(ui.item._id);
 			return false;
 		}

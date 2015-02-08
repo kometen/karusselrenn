@@ -7,6 +7,15 @@ Template.participantItem.helpers({
 	}
 });
 
+Template.participantItemTiny.helpers({
+	ownParticipant: function () {
+		return this.ownerId == Meteor.userId();
+	},
+	domain: function () {
+		return 'Blåbærsyltetøj';
+	}
+});
+
 Template.participantItem.events({
 	'click input.details': function (e) {
 		e.preventDefault();
