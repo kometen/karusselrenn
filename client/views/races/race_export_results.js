@@ -12,10 +12,16 @@ Template.raceExportResults.events({
 		var pc = ParticipantsInRace.find({raceId: this._id}, {sort: {submitted: 1}}).fetch();
 
 //		console.log('startnummer, namn, kjønn, tid brukt');
-		filedata += 'startnummer,starttid,namn,fødd,kjønn,tid brukt,klubb\n';
+		filedata += 'startnummer,namn,starttid,sluttid,tid brukt,fødd,kjønn,klubb\n';
 		pc.forEach(function (p) {
-//			console.log(p.startnumber + ', ' + p.name + ', ' + p.gender + ', ' + p.racetime);
-			filedata += p.startnumber + ',' + p.starttime + ',' + p.name + ',' + p.year + ',' + (p.gender === 'male' ? 'gutt' : 'jente') + ',' + p.racetime + ',' + p.club + '\n';
+			filedata += p.startnumber + ',' +
+						p.name + ',' +
+						p.starttime + ',' +
+						p.endtime + ',' +
+						p.racetime + ',' +
+						p.year + ',' +
+						(p.gender === 'male' ? 'gutt' : 'jente') + ',' +
+						p.club +'\n';
 		});
 
 		var file = new Blob([filedata], {type: contentType});
