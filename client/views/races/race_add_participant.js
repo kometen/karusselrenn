@@ -66,7 +66,7 @@ var acName = function () {
 //			response(participantsData)
 		},
 		focus: function (event, ui) {
-			$("#name").val(ui.item.value)
+			$("#name").val(ui.item.value);
 			return false;
 		},
 		select: function (event, ui) {
